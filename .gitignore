@@ -14,3 +14,28 @@ pom.xml.asc
 
 movie_ids.json
 movie_ids.json.gz
+
+.env
+
+# IntelliJ IDEA
+.idea/
+*.iml
+# Keep these optional IntelliJ files for shared project settings
+!.idea/modules.xml
+!.idea/misc.xml
+!.idea/codeStyles
+!.idea/inspectionProfiles
+
+# Java and Clojure
+*.war
+*.ear
+
+# Leiningen
+/.lein-repl-history
+/.lein-env
+target/
+
+# OS specific
+.DS_Store
+Thumbs.db
+

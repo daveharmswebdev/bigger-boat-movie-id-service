@@ -10,8 +10,10 @@
                  [ring/ring-core "1.13.0"]
                  [ring/ring-jetty-adapter "1.9.6"]
                  [compojure "1.6.2"]
-                 [ring/ring-defaults "0.3.3"]]
+                 [ring/ring-defaults "0.3.3"]
+                 [environ "1.2.0"]]
+  :plugins [[lein-environ "1.2.0"]
+            [lein-dotenv "RELEASE"]]
   :main ^:skip-aot movie-id-service.core
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}}
   :repl-options {:init-ns movie-id-service.core})
