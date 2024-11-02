@@ -16,6 +16,8 @@ movie_ids.json
 movie_ids.json.gz
 
 .env
+.env.production
+.env.test
 
 # IntelliJ IDEA
 .idea/

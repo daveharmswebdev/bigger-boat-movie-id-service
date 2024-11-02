@@ -38,7 +38,7 @@
 (defn insert-movies [db]
   (let [file (decompress-gzip-fil)
         coll-name "movies"
-        batch-size 500]
+        batch-size 5000]
     ;; drop collection if it exists
     (mc/remove db coll-name)
     ;; process the file and insert all records in batches

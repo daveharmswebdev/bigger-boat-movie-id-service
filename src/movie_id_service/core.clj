@@ -1,5 +1,6 @@
 (ns movie-id-service.core
   (:require [movie-id-service.db :as service-db]
+            [movie-id-service.loader :as loader]
             [movie-id-service.api :refer [app]]
             [ring.adapter.jetty :refer [run-jetty]]))
 
@@ -10,9 +11,17 @@
 ;    (loader/insert-movies db)
 ;    (println "Insertion complete.")))
 
+(defn load-movies []
+  (try
+    (let [db (service-db/get-db)]
+      (loader/insert-movies db)
+      (println "Movies loaded successfully."))
+    (catch Exception e
+      (println "Error occurred while loading movies" (.getMessage e)))))
+
 (defn start-server []
-  (service-db/connect-to-mongodb)
   (run-jetty app {:port 3000 :join? false}))
 
 (defn -main []
+  (service-db/connect-to-mongodb)
   (start-server))

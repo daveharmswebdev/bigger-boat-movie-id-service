@@ -3,6 +3,7 @@
             [compojure.core :refer :all]
             [compojure.route :as route]
             [ring.util.response :as response]
+            [ring.middleware.cors :refer [wrap-cors]]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
             [movie-id-service.db :as db]))
 
@@ -19,4 +20,9 @@
            (route/not-found "Not Found"))
 
 (def app
-  (wrap-defaults app-routes site-defaults))
+  (-> app-routes
+      (wrap-cors
+        :access-control-allow-origin [#".*"]
+        :access-control-allow-methods [:get :post :put :delete]
+        :access-control-allow-headers ["Content-Type" "Authorization"])
+      (wrap-defaults site-defaults)))

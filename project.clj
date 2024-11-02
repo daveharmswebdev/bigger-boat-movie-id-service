@@ -8,6 +8,7 @@
                  [clj-http "3.13.0"]
                  [com.novemberain/monger "3.5.0"]
                  [ring/ring-core "1.13.0"]
+                 [ring-cors "0.1.13"]
                  [ring/ring-jetty-adapter "1.9.6"]
                  [compojure "1.6.2"]
                  [ring/ring-defaults "0.3.3"]
